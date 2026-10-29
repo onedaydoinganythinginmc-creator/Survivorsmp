@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#10131b">
+<title>SURVIVOR SMP — Sinh tồn SMP 2D Top-down</title>
+<link rel="stylesheet" href="/src/client/style.css">
+</head>
+<body>
+<canvas id="gameCanvas"></canvas>
+
+<!-- HUD -->
+<div id="hud">
+  <div id="statsWrap">
+    <div id="lvlLabel" class="lvl">Lv. 1</div>
+    <div class="bar hp"><i id="barHpFill"></i></div>
+    <div class="bar hunger"><i id="barHungerFill"></i></div>
+    <div class="bar stamina"><i id="barStaminaFill"></i></div>
+    <div class="bar xp"><i id="barXpFill"></i></div>
+  </div>
+  <div id="topbar">
+    <span id="timeLabel">☀️ Ngày 1</span>
+    <span id="onlineChip">👤 1 online</span>
+  </div>
+  <div id="modeBanner"></div>
+</div>
+
+<!-- joystick -->
+<div id="joy"><div id="joyStick"></div></div>
+
+<!-- right controls -->
+<div id="actions">
+  <div class="row">
+    <button id="btnInteract" class="act-btn small" style="display:none">✋</button>
+  </div>
+  <div class="row">
+    <button id="btnAttack" class="act-btn main">⚔️</button>
+    <div class="stack">
+      <button id="btnBuildApply" class="act-btn small">🔨 Xây</button>
+      <button id="btnInv" class="act-btn small">🎒</button>
+    </div>
+  </div>
+</div>
+
+<!-- bottom toolbar -->
+<div id="toolbar">
+  <button id="btnCraft" class="tool-btn">⚒️ Chế tạo</button>
+  <button id="btnBuild" class="tool-btn">🧱 Xây dựng</button>
+  <button id="btnMap" class="tool-btn">🗺️ Bản đồ</button>
+  <button id="btnPlayers" class="tool-btn">👥 Người chơi</button>
+</div>
+
+<div id="toasts"></div>
+
+<!-- panel -->
+<div id="panelWrap" style="display:none">
+  <div id="panel">
+    <div id="panelHead">
+      <h2 id="panelTitle"></h2>
+      <button id="closePanel" class="close">✕</button>
+    </div>
+    <div id="panelBody"></div>
+  </div>
+</div>
+
+<!-- death -->
+<div id="deathOverlay" style="display:none">
+  <div class="death-card">
+    <h2>💀 Bạn đã bị hạ!</h2>
+    <p id="deathMsg"></p>
+    <button id="respawnBtn" class="big">⚕️ Hồi sinh</button>
+  </div>
+</div>
+
+<!-- menu -->
+<div id="menu">
+  <div class="menu-card">
+    <h1>🌳 SURVIVOR SMP</h1>
+    <p class="sub">Sinh tồn • Săn bắn • Khai mỏ • Chế tạo • Xây căn cứ • <b>Thế giới SMP chung</b></p>
+    <div class="join-row">
+      <input id="nameInput" maxlength="14" placeholder="Tên Survivalist của bạn" autocomplete="off">
+      <button id="playBtn" class="big">Chơi ngay</button>
+      <button id="soloBtn" class="mini">Solo (máy chủ offline)</button>
+    </div>
+    <div id="connectStatus" class="status"></div>
+    <ul class="help">
+      <li>🕹️ Nút điều khiển trái: di chuyển 8 hướng (chạm xa = chạy nhanh)</li>
+      <li>⚔️ Nút phải: tấn công về hướng đang quay/nhắm; ✋ tương tác cửa hang, rương, cửa</li>
+      <li>🪓 Chặt cây bằng rìu, tuy nhiên có thể vặt bụi/tufts bằng tay</li>
+      <li>⚒️ Bàn chế tạo (crafting table) mở đầy đủ công cụ; lò nung luyện thỏi; lửa trại nấu thịt</li>
+      <li>🧱 Chế độ xây dựng: đặt tường/sàn/cửa/rương nơi hợp lệ — phá dỡ bằng búa</li>
+      <li>🪨 Cửa hang: xuống lòng đất nhiều tầng; càng sâu càng giàu khoáng sản nhưng có boss</li>
+      <li>🌙 Ban đêm quái vật xuất hiện dày hơn — hãy xây dựng căn cứ để mở một khu vực an toàn</li>
+      <li>💾 Nhà chung SMP: cùng server, cùng thế giới; công trình/vật phẩm lưu máy chủ</li>
+    </ul>
+  </div>
+</div>
+<script type="module" src="/src/client/main.js"></script>
+</body>
+</html>
